@@ -9,6 +9,7 @@ record some notes 2023
 3. Typescript
    1. video [Learn Typescript -- scrimba](https://scrimba.com/learn/typescript)
    2. roadmap [TypeScript](https://roadmap.sh/typescript)
+4. 设计模式
 
 ## JavaScript
 
