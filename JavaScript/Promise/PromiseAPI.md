@@ -1,32 +1,32 @@
 ## Promise API
 
-在 `Promise` 类中，有 6 中静态方法。
+在 `Promise` 类中，有 6 中静态方法，下面 👇 将介绍主要使用的四种：
 
 ### Promise.all
 
-假设我们希望并执行多个 promise，并等待所有 promise 都准备就绪。
+假设我们希望并执行多个 promise，并等待所有 promise 都准备就绪，则可以使用 `Promise.all([...])`
 
 ```js
 let promise = Promise.all(iterable);
 ```
 
-`promise.all` 接受一个可迭代对象（通常是一个数组项为 promise 的数组），并返回一个新的 promise。
+`promise.all` 接受一个可迭代对象（**通常是一个数组项为 promise 的数组**），并返回一个新的 promise。
 
-所有给定的 `promise` 都 `resolve` 时，新的 `promise` 才会 `resolve`，并且其结果数组将成为新 `promise` 的结果
+所有给定的 `promise` 都 `resolve` 时，新的 `promise` 才会 `resolve`，其结果将成为新 `promise` 的结果数组的数组项
 
 ```js
 Promise.all([
   new Promise(resolve => setTimeout(() => resolve(1), 3000)), // 1
   new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
   new Promise(resolve => setTimeout(() => resolve(3), 1000)), // 3
-]).then(alert); // 1,2,3 当上面这些 promise 准备好时：每个 promise 都贡献了数组中的一个元素
+]).then(alert); // 1,2,3 当上面这些 promise 准备好时，每个 promise 都贡献了数组中的一个元素
 ```
 
 请注意，结果数组中元素的顺序与其在源 `promise` 中的顺序相同。**即使第一个 `promise` 花费了最长的时间才 `resolve`，但它仍是结果数组中的第一个。**
 
 **如果任意一个 `promise` 被 `reject`，由 `Promise.all` 返回的 `promise` 就会立即 `reject`，并且带有的就是这个 `error`。**
 
-> 1. **如果一个 `promise` 被 `reject`，`Promise.all` 就会立即被 `reject` **
+> 1. **如果一个 `promise` 被 `reject`，`Promise.all` 就会立即被 `reject`**
 > 2. 如果这些对象中的任何一个不是 `promise`，那么它将被 **按原样** 传递给结果数组。
 
 **一个常见的技巧是，将一个任务数据数组映射（map）到一个 `promise` 数组，然后将其包装到 `Promise.all`。**
@@ -35,8 +35,8 @@ Promise.all([
 
 `Promise.allSettled` 等待所有的 `promise` 都被 `settle`，无论结果如何。结果数组具有：
 
-- `{status:"fulfilled", value:result}` 对于成功的响应
-- `{status:"rejected", reason:error}` 对于 `error`
+- 对于成功的响应：`{ status: "fulfilled", value: result }`
+- 对于错误的响应：`{ status: "rejected", reason: error }`
 
 ```js
 let urls = [
@@ -46,7 +46,6 @@ let urls = [
 ];
 
 Promise.allSettled(urls.map(url => fetch(url))).then(results => {
-  // (*)
   /*
     results:
       [
@@ -54,7 +53,7 @@ Promise.allSettled(urls.map(url => fetch(url))).then(results => {
         {status: 'fulfilled', value: ...response...},
         {status: 'rejected', reason: ...error object...}
       ]
-     */
+  */
 });
 ```
 
@@ -78,7 +77,7 @@ Promise.race([
 
 ### Promise.any
 
-与 `Promise.race` 类似，区别在于 `Promise.any` 只等待第一个 `fulfilled` 的 `promise`，并将这个 `fulfilled` 的 `promise` 返回。
+与 `Promise.race` 类似，区别在于 **`Promise.any` 只等待第一个 `fulfilled` 的 `promise`**，并将这个 `fulfilled` 的 `promise` 返回。
 
 ```js
 let promise = Promise.any(iterable);

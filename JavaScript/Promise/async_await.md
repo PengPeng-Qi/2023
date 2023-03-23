@@ -1,14 +1,6 @@
 ## async
 
-`async` 被放置在一个函数前面
-
-```js
-async function f() {
-  return 1;
-}
-```
-
-`async` 表明了一个简单的事情：即这个函数总是返回一个 `promise`，其他值将自动被包装在一个 `resolved` 的 `promise` 中
+`async` 被放置在一个函数前面，表明这个函数总是返回一个 `promise`，其他值将自动被包装在一个 `resolved` 的 `promise` 中
 
 ```js
 async function f() {
@@ -34,7 +26,7 @@ f().then(alert); // 1
 let value = await promise;
 ```
 
-**`await` 会暂停函数的执行，直到 promise 状态变为 settled，然后以 promise 的结果继续执行。**这个行为不会耗费任何 CPU 资源，因为 JavaScript 引擎可以同时处理其他任务：执行其他脚本，处理事件等。
+**`await` 会暂停函数的执行，直到 promise 状态变为 settled，然后以 promise 的结果继续执行**。这个行为不会耗费任何 CPU 资源，因为 JavaScript 引擎可以同时处理其他任务：执行其他脚本，处理事件等。**是一个异步方法，但是可以经过特殊处理，可以被 `try...catch` 处理。**
 
 ```js
 async function f() {
@@ -66,7 +58,7 @@ console.log(user);
 
 ### Error 处理
 
-如果 `promise` 被 `reject`，它将 `throw` 这个 `error`，就像在这一行有一个 `throw` 语句那样。
+如果 `promise` 被 `reject`，`await promise` 返回的就是一个 `error`，它将 `throw` 这个 `error`，就像在这一行有一个 `throw` 语句那样。
 
 ```js
 async function f() {
@@ -79,7 +71,7 @@ async function f() {
 }
 ```
 
-可以使用 `try catch` 来捕获错误，与常规的 `throw` 使用的是一样的
+可以使用 `try catch` 来捕获该错误，与常规的 `throw` 使用的是一样的
 
 ```js
 async function f() {

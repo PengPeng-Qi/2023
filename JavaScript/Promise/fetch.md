@@ -13,12 +13,10 @@ let promise = fetch(url);
 fetch("/article/promise-chaining/user.json")
   // 当远程服务器响应时，下面的 .then 开始执行
   .then(function (response) {
-    // 当 user.json 加载完成时，response.text() 会返回一个新的 promise
-    // 该 promise 以加载的 user.json 为 result 进行 resolve
+    // response.text() 返回一个新的 promise，该 promise 以加载的 user.json 为 result 进行 resolve
     return response.text();
   })
   .then(function (text) {
-    // ……这是远程文件的内容
     alert(text); // {"name": "iliakan", "isAdmin": true}
   });
 ```
@@ -26,7 +24,7 @@ fetch("/article/promise-chaining/user.json")
 从 `fetch` 返回的 `response` 对象还包含 **`response.json` 方法，该方法可以读取远程数据并将其解析为 `JSON`**
 
 ```js
-// 同上，但使用 response.json() 将远程内容解析为 JSON
+// 同上，使用 response.json() 将远程内容解析为 JSON
 fetch("/article/promise-chaining/user.json")
   .then(response => response.json())
   .then(user => alert(user.name)); // iliakan，获取到了用户名

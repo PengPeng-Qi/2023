@@ -4,13 +4,13 @@
 
 ### executor
 
-`executor` 只能被调用一次 `resolve` 或一个 `reject`，任何状态的更改都是最终的，所有其他**再对 `resolve` 或者 `reject` 的调用都会被忽略**，但是其他代码任然执行。
+`executor` 只能被调用一次 `resolve` 或一个 `reject`，任何状态的更改都是最终的，所有其他**再对 `resolve` 或者 `reject` 的调用都会被忽略**，**但是其他代码任然执行。**
 
 ### then
 
 1. 如果只对成功完成的情况感兴趣，那么可以只为 `.then` 提供一个函数参数
 
-2. 每个对 `.then` 的调用都会返回一个新的 `promise`，因此，可以在此基础上调用下一个 `.then`，当处理程序返回一个值时，将成为该 `promise` 的 `result`，会再使用它调用下一个 `.then`
+2. **每个对 `.then` 的调用都会返回一个新的 `promise`。**因此，可以在此基础上调用下一个 `.then`，当处理程序返回一个值时，将成为该 `promise` 的 `result`，会再使用它调用下一个 `.then`
 
 3. `.then()` 中所使用的处理程序可以创建并返回一个 `promise`，这种情况下，处理程序将等待它调用 `reslove` 或者 `reject` 后再获得其结果
 
@@ -31,9 +31,10 @@ promise.catch(alert);
 
 #### 隐式 try...catch
 
-`promise` 的 **`executor` 和 `promise` 的处理程序周围有一个隐式的 `try...catch`**，如果发生异常（同步错误），就会被捕获。
+`promise` 的 **`executor` 和 `promise` 的处理程序周围有一个隐式的 `try...catch`，如果发生异常（同步错误），就会被捕获。**
 
 ```js
+// executor 中
 new Promise((resolve, reject) => {
   throw new Error("Whoops!");
 }).catch(alert); // Error: Whoops!
@@ -45,6 +46,7 @@ new Promise((resolve, reject) => {
 ```
 
 ```js
+// promise 中
 new Promise((resolve, reject) => {
   resolve("ok");
 })
@@ -54,15 +56,16 @@ new Promise((resolve, reject) => {
   .catch(alert); // Error: Whoops!
 ```
 
-##### 例子
+##### 典型例子 🌰
 
 ```js
 new Promise(function (resolve, reject) {
+  // try...catch
   setTimeout(() => {
     throw new Error("Whoops!");
   }, 1000);
 }).catch(alert);
-// 不会捕获错误，因为try catch 只捕获同步错误，这里的错误不是在 executor 运行时产生的，而是在稍后生成的
+// .catch() 不会捕获错误，因为try catch 只捕获同步错误，这里的错误不是在 executor 运行时产生的，而是在稍后生成的
 ```
 
 ```js
