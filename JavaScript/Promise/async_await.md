@@ -1,4 +1,4 @@
-## async
+# async
 
 `async` 被放置在一个函数前面，表明这个函数总是返回一个 `promise`，其他值将自动被包装在一个 `resolved` 的 `promise` 中
 
@@ -56,7 +56,7 @@ let user = await response.json();
 console.log(user);
 ```
 
-### Error 处理
+## Error 处理
 
 如果 `promise` 被 `reject`，`await promise` 返回的就是一个 `error`，它将 `throw` 这个 `error`，就像在这一行有一个 `throw` 语句那样。
 
@@ -88,3 +88,11 @@ f();
 ```
 
 > 此处注意 ⚠️：`try...catch` 只捕获同步错误，此处能捕获 `await` 是因为 `await` 会把 `rejected` `promise` 转变为 `throw`，这也是 `await` 的功能之一。
+
+## 面试题
+
+**await 后面的函数是立即执行还是放入异步队列中？**
+
+await后面的函数会被放入异步队列中，而不是立即执行。当async函数被调用时，它会返回一个Promise对象，这个Promise对象会在async函数中的所有await语句执行完毕之后被resolve。
+
+在执行到await语句时，async函数会暂停执行，并等待await后面的异步操作完成，然后继续执行async函数的下一行代码。这种机制使得async函数的执行不会阻塞主线程，而是可以在异步操作执行的同时执行其他任务。
