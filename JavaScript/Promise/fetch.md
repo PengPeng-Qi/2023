@@ -1,4 +1,4 @@
-## fetch
+# fetch
 
 ```js
 let promise = fetch(url);

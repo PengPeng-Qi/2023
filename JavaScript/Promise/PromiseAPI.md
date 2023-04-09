@@ -1,8 +1,8 @@
-## Promise API
+# Promise API
 
 在 `Promise` 类中，有 6 中静态方法，下面 👇 将介绍主要使用的四种：
 
-### Promise.all
+## Promise.all
 
 假设我们希望并执行多个 promise，并等待所有 promise 都准备就绪，则可以使用 `Promise.all([...])`
 
@@ -31,7 +31,7 @@ Promise.all([
 
 **一个常见的技巧是，将一个任务数据数组映射（map）到一个 `promise` 数组，然后将其包装到 `Promise.all`。**
 
-### Promise.allSettled
+## Promise.allSettled
 
 `Promise.allSettled` 等待所有的 `promise` 都被 `settle`，无论结果如何。结果数组具有：
 
@@ -57,7 +57,7 @@ Promise.allSettled(urls.map(url => fetch(url))).then(results => {
 });
 ```
 
-### Promise.race
+## Promise.race
 
 与 `Promise.all` 类似，只等待第一个 `settled` 的 `promise` 并获取其结果（或 `error`）
 
@@ -75,7 +75,7 @@ Promise.race([
 ]).then(alert); // 1
 ```
 
-### Promise.any
+## Promise.any
 
 与 `Promise.race` 类似，区别在于 **`Promise.any` 只等待第一个 `fulfilled` 的 `promise`**，并将这个 `fulfilled` 的 `promise` 返回。
 
