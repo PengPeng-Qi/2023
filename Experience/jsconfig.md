@@ -1,4 +1,4 @@
-## jsconfig.json
+# jsconfig.json
 
 a config for ide
 

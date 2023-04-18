@@ -1,8 +1,8 @@
-## git log
+# git log
 
 这一期讲一讲 `git log` 的图怎么看
 
-### 例 1 🌰
+## 例 1 🌰
 
 ```shell
 git log
@@ -14,7 +14,7 @@ commit xxxxxx (HEAD -> main, origin/main, origin/HEAD)
 - `origin/main` 表示远程的 `main` 分支在当前 `commit xxxxxx`
 - `origin/HEAD` 表示远程分支的 `HEAD` 在当前 `commit xxxxxx`
 
-### 例 2 🌰
+## 例 2 🌰
 
 ```shell
 git log
