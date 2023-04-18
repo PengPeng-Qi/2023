@@ -79,9 +79,9 @@ new Promise(function (resolve, reject) {
 
 ## finally
 
-1. `.finally(f)` 类似于 `.then(f, f)`，无论 `promise` `resolve` 还是 `reject` 都会执行 `f`
+- `.finally(f)` 类似于 `.then(f, f)`，无论 `promise` `resolve` 还是 `reject` 都会执行 `f`
 
-2. **`finally` 的处理函数中是没有参数的，`finally` 处理程序将结果或 `error` 传递给下一个合适的处理函数， `promise` 的结果由下一个处理程序处理。**
+- **`finally` 的处理函数中是没有参数的，`finally` 处理程序将结果或 `error` 传递给下一个合适的处理函数， `promise` 的结果由下一个处理程序处理。**
 
 ```js
 new Promise((resolve, reject) => {
@@ -91,4 +91,4 @@ new Promise((resolve, reject) => {
   .then(result => alert(result)); // <-- .then 显示 "value"
 ```
 
-3. **`finally` 处理程序也不应该返回任何内容，如果返回了，返回的值会默认被忽略。除非该程序抛出 `error`，此时这个 `error` 会被转到下一个处理程序。**
+- **`finally` 处理程序也不应该返回任何内容，如果返回了，返回的值会默认被忽略。除非该程序抛出 `error`，此时这个 `error` 会被转到下一个处理程序。**
