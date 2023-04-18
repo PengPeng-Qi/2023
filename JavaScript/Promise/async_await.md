@@ -19,7 +19,7 @@ f().then(alert); // 1
 
 ## await
 
-`await` 只能在 `async` 函数内工作
+`await` 只能在 `async` 函数内工作，返回值为 `resolve` 或 `reject` 的值。
 
 ```js
 // 只在 async 函数内工作
@@ -93,6 +93,6 @@ f();
 
 **await 后面的函数是立即执行还是放入异步队列中？**
 
-await后面的函数会被放入异步队列中，而不是立即执行。当async函数被调用时，它会返回一个Promise对象，这个Promise对象会在async函数中的所有await语句执行完毕之后被resolve。
+**await后面的函数会被放入异步队列中，而不是立即执行。**当async函数被调用时，它会返回一个Promise对象，这个Promise对象会在async函数中的所有await语句执行完毕之后被resolve。
 
 在执行到await语句时，async函数会暂停执行，并等待await后面的异步操作完成，然后继续执行async函数的下一行代码。这种机制使得async函数的执行不会阻塞主线程，而是可以在异步操作执行的同时执行其他任务。

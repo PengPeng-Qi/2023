@@ -12,7 +12,7 @@ let promise = Promise.all(iterable);
 
 `promise.all` 接受一个可迭代对象（**通常是一个数组项为 promise 的数组**），并返回一个新的 promise。
 
-所有给定的 `promise` 都 `resolve` 时，新的 `promise` 才会 `resolve`，其结果将成为新 `promise` 的结果数组的数组项
+所有给定的 `promise` 都 `resolve` 时，新的 `promise` 才会 `resolve`，**其结果将成为新 `promise` 的结果数组的数组项**
 
 ```js
 Promise.all([
