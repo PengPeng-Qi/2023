@@ -38,3 +38,7 @@ $ NODE_ENV=production node app.js
 ```
 
 在实际应用开发中，使用 `NODE_ENV` 可以方便地控制应用的行为，提高开发效率和代码质量。
+
+if you have multiple environment variables in your node project, you can create an `.env` file in the root directory of your project, and the use the `dotenv` package to laod them during runtime.
+
+reference [link](https://nodejs.dev/en/learn/how-to-read-environment-variables-from-nodejs/)
