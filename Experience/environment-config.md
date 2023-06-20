@@ -3,23 +3,22 @@
 ## Mac
 
 1. [设置三指拖拽](https://support.apple.com/zh-cn/HT204609)
-2. 下载 `Fliqlo`，桌面与程序坞，设置触发角
+2. 下载 [`Fliqlo`](https://fliqlo.com/)，桌面与程序坞 --> 设置触发角
 3. 程序坞设置将窗口最小化至应用程序图标
+4. Finder 显示隐藏文件 `cmd+shift+.`
 
 ## App
 
 ### App Store
 
-1. qq
-2. qq music
-3. 微信
-4. 网易云music
-5. 网易云翻译
-6. one note
-
-### Chrome
-
-1. [Chrome](https://www.google.com/chrome/)
+1. Chrome
+2. qq
+3. qq music
+4. 微信
+5. 网易云music
+6. 网易云翻译
+7. one note
+8. 爱奇艺
 
 ### VScode
 
@@ -34,25 +33,25 @@
 
 > [更多配置信息查看](https://zhuanlan.zhihu.com/p/550022490)
 
-### HomeBrew
-
-[安装 HomeBrew](https://brew.sh/)
-
 ### clash
 
-1. [下载 clash](https://github.com/Fndroid/clash_for_windows_pkg/releases)
+- [下载 clash](https://github.com/Fndroid/clash_for_windows_pkg/releases)
 
 ## 开发环境
+
+### HomeBrew
+
+- [安装 HomeBrew](https://brew.sh/)
 
 ### NodeJS
 
 1. 安装 `brew install node`
 2. 安装 `nvm` - [`brew install nvm`](https://formulae.brew.sh/formula/nvm#default)
-3. 安装 `yarn` - [`brew install yarn`](https://formulae.brew.sh/formula/yarn#default)
-4. 安装 `nrm` - [连接](https://github.com/Pana/nrm)
+3. 安装 `nrm` - [`npm i nrm -g`](https://github.com/Pana/nrm)
+4. 安装 `yarn` - [`brew install yarn`](https://formulae.brew.sh/formula/yarn#default)
 
 ### Git
 
 1. 安装 `brew install git`
-2. [本地环境Git 连接 GitHub](https://juejin.cn/post/7116710387906674701/)
-3. 安装 `gh` - `brew install gh`
+2. 安装 `gh` - `brew install gh`
+3. [本地环境Git 连接 GitHub](https://juejin.cn/post/7116710387906674701/)
