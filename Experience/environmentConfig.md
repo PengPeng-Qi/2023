@@ -4,6 +4,7 @@
 
 1. [设置三指拖拽](https://support.apple.com/zh-cn/HT204609)
 2. 下载 `Fliqlo`，桌面与程序坞，设置触发角
+3. 程序坞设置将窗口最小化至应用程序图标
 
 ## App
 
