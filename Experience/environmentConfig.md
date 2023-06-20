@@ -3,9 +3,22 @@
 ## Mac
 
 1. [设置三指拖拽](https://support.apple.com/zh-cn/HT204609)
-2. 下载 `Fliqlo`，设置触发角
+2. 下载 `Fliqlo`，桌面与程序坞，设置触发角
 
 ## App
+
+### App Store
+
+1. qq
+2. qq music
+3. 微信
+4. 网易云music
+5. 网易云翻译
+6. one note
+
+### Chrome
+
+1. [Chrome](https://www.google.com/chrome/)
 
 ### VScode
 
@@ -20,15 +33,15 @@
 
 > [更多配置信息查看](https://zhuanlan.zhihu.com/p/550022490)
 
+### HomeBrew
+
+[安装 HomeBrew](https://brew.sh/)
+
 ### clash
 
 1. [下载 clash](https://github.com/Fndroid/clash_for_windows_pkg/releases)
 
 ## 开发环境
-
-### HomeBrew
-
-[安装 HomeBrew](https://brew.sh/)
 
 ### NodeJS
 
