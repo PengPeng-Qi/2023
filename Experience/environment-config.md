@@ -35,7 +35,7 @@
 
 ### clash
 
-- [下载 clash](https://github.com/Fndroid/clash_for_windows_pkg/releases)
+- [下载 clash](https://github.com/yichengchen/clashX/releases)
 
 ## 开发环境
 
