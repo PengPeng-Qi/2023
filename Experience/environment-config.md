@@ -57,3 +57,4 @@
 1. 安装 `brew install git`
 2. 安装 `gh` - `brew install gh`
 3. [本地环境Git 连接 GitHub](https://juejin.cn/post/7116710387906674701/)
+4. [配置多个Git 账户](https://juejin.cn/post/7124197374318084127)
