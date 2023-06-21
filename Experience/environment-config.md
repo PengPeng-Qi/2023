@@ -25,11 +25,13 @@
 1. 安装 [vscode](https://code.visualstudio.com/)
 2. 安装 `code` 快捷键
     - `cmd + shift + p` 输入 `install code`
+3. 安装字体：[JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
 ### iTerm2
 
 1. [安装 iTerm2](https://iterm2.com/)
 2. [安装 Spaceship](https://spaceship-prompt.sh/getting-started/#installing)
+3. 安装字体: [FiraCode](https://github.com/tonsky/FiraCode)
 
 > [更多配置信息查看](https://zhuanlan.zhihu.com/p/550022490)
 
