@@ -8,7 +8,7 @@
 4. Finder 显示隐藏文件 `cmd+shift+.`
 5. 开机自启动：通用-登陆项-添加自启动app
 6. 更新右侧栏小组件
-7. 桌面与程序坞可自定义台前调度模式
+7. 桌面与程序坞可[自定义](https://support.apple.com/zh-cn/guide/mac-help/mchl534ba392/mac)台前调度模式
 
 ## App
 
