@@ -62,3 +62,6 @@
 2. 安装 `gh` - `brew install gh`
 3. [本地环境Git 连接 GitHub](https://juejin.cn/post/7116710387906674701/)
 4. [配置多个Git 账户](https://juejin.cn/post/7124197374318084127)
+5. 安装 [commitizen](https://github.com/commitizen/cz-cli)
+    1. 远程仓库安装可针对单个项目生效：[make repo commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
+    2. 本地开发环境全局配置针对全部项目生效：[make commitizen as a global utility](https://github.com/commitizen/cz-cli#conventional-commit-messages-as-a-global-utility)
