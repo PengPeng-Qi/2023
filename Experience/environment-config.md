@@ -36,6 +36,7 @@
 1. [安装 iTerm2](https://iterm2.com/)
 2. [安装 Spaceship](https://spaceship-prompt.sh/getting-started/#installing)
 3. 安装字体: [FiraCode](https://github.com/tonsky/FiraCode)
+4. [清除new window last login message](https://stackoverflow.com/questions/15769615/remove-last-login-message-for-new-tabs-in-terminal)
 
 > [更多配置信息查看](https://zhuanlan.zhihu.com/p/550022490)
 
