@@ -68,12 +68,12 @@ npm pkg set scripts.prepare="husky install"
 
 ```js
 "lint-staged": {
-  "src/**/*.{js,ts,vue}": [
-    // 读取指定的文件或目录中的所有代码，并使用 Prettier 提供的规则对其进行格式化
-    "prettier --write",
-    // 读取指定的文件或目录中的所有代码，并使用 ESLint 提供的规则对其进行检查并修复
-    "eslint --fix"
-  ]
+  /**
+   * `**`: 表示任意目录
+   *  `*`: 表示任意文件名
+   */
+  '**/*.{vue,ts,tsx}': ['eslint --fix', 'tsc --noEmit'], // 先进行 eslint，再进行 tslint
+  '**/*.{vue,js,jsx,ts,tsx,md,html,css,scss}': 'prettier --write'
 }
 ```
 
