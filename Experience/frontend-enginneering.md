@@ -62,19 +62,14 @@ automatically have Git hooks enabled after install, edit package.json
 npm pkg set scripts.prepare="husky install"
 ```
 
-## lint-staged
+## Lint-Staged
 
-[`lint-staged`](https://github.com/okonet/lint-staged) 中一般在 `package.json` 中配置 `prettier` 和 `eslint` 的检查信息
+### Install
 
-```js
-"lint-staged": {
-  /**
-   * `**`: 表示任意目录
-   *  `*`: 表示任意文件名
-   */
-  '**/*.{vue,ts,tsx}': ['eslint --fix', 'tsc --noEmit'], // 先进行 eslint，再进行 tslint
-  '**/*.{vue,js,jsx,ts,tsx,md,html,css,scss}': 'prettier --write'
-}
+```shell
+npm install --save-dev lint-staged
 ```
 
-> 也可以使用其他配置文件，像 `husky` 一样，[Link](https://github.com/okonet/lint-staged#Configuration)
+### Configure Lint-Staged
+
+[Configure Lint-Staged](https://github.com/okonet/lint-staged#configuration)
