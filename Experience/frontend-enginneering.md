@@ -42,19 +42,19 @@ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 
 > Reference: [🔗](https://github.com/commitizen/cz-cli)
 
-## husky
+## Husky
 
-[official website](https://typicode.github.io/husky/getting-started.html)
+[Install Husky](https://typicode.github.io/husky/getting-started.html#install)
 
-### config git hooks
+### Create a hook
 
 ```shell
-npx husky add .husky/pre-commit "npx lint-staged" # 在pre-commit的时候进行 lint-staged
+npx husky add .husky/pre-commit "npx lint-staged" # 在 pre-commit 的时候进行 lint-staged
 
-npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"' # commit message 进行 commitlint 检查🧐
+npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"' # 在 commit message 进行 commitlint 检查🧐
 ```
 
-### automatically Git hooks enabled
+### Automatically Git hooks enabled
 
 automatically have Git hooks enabled after install, edit package.json
 
