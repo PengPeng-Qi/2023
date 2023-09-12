@@ -5,7 +5,7 @@
 1. `prettier` - 代码格式化工具
 2. `eslint` - 检查并修复 js 的工具
 3. `commitlint` - [Link](https://commitlint.js.org/#/guides-local-setup)
-4. `commitizen` - commit messgae
+4. `commitizen` - commit message
 5. `husky` - 提供所有的 Git hooks
 6. `lint-staged` - 将所有的 staged 中的文件执行 linter，避免出现代码 💩
 
