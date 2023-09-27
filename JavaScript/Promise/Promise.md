@@ -4,7 +4,7 @@
 
 ## executor
 
-`executor` 只能被调用一次 `resolve` 或一个 `reject`，任何状态的更改都是最终的，所有其他**再对 `resolve` 或者 `reject` 的调用都会被忽略**，**但是其他代码任然执行。**
+`executor` 只能被调用一次 `resolve` 或一个 `reject`，任何状态的更改都是最终的，所有其他**再对 `resolve` 或者 `reject` 的调用都会被忽略**，**但是其他代码仍然执行。**
 
 ## then
 
@@ -12,7 +12,7 @@
 
 2. **每个对 `.then` 的调用都会返回一个新的 `promise`。** 因此，可以在此基础上调用下一个 `.then`，当处理程序返回一个值时，将成为该 `promise` 的 `result`，可以再使用它调用下一个 `.then`
 
-3. `.then()` 中所使用的处理程序可以创建并返回一个 `promise`，这种情况下，处理程序将等待它调用 `reslove` 或者 `reject` 后再获得其结果
+3. `.then()` 中所使用的处理程序可以创建并返回一个 `promise`，这种情况下，处理程序将等待它调用 `resolve` 或者 `reject` 后再获得其结果
 
 ## catch
 
@@ -20,11 +20,10 @@
 
 ```js
 let promise = new Promise((resolve, reject) => {
-  setTimeout(() => reject(new Error("Whoops!")), 1000);
-});
+  setTimeout(() => reject(new Error('Whoops!')), 1000)
+})
 
-// .catch(f) 与 promise.then(null, f) 一样
-promise.catch(alert);
+promise.catch(alert)
 ```
 
 > `.catch` 是 `.then(null, f)` 的语法糖，通常情况下，被附加到链的末尾
@@ -36,24 +35,24 @@ promise.catch(alert);
 ```js
 // executor 中
 new Promise((resolve, reject) => {
-  throw new Error("Whoops!");
-}).catch(alert); // Error: Whoops!
+  throw new Error('Whoops!')
+}).catch(alert) // Error: Whoops!
 
 // 这两段代码完全相同
 new Promise((resolve, reject) => {
-  reject(new Error("Whoops!"));
-}).catch(alert); // Error: Whoops!
+  reject(new Error('Whoops!'))
+}).catch(alert) // Error: Whoops!
 ```
 
 ```js
 // promise 中
 new Promise((resolve, reject) => {
-  resolve("ok");
+  resolve('ok')
 })
-  .then(result => {
-    throw new Error("Whoops!"); // reject 这个 promise
+  .then((result) => {
+    throw new Error('Whoops!') // reject 这个 promise
   })
-  .catch(alert); // Error: Whoops!
+  .catch(alert) // Error: Whoops!
 ```
 
 ### 典型例子 🌰
@@ -62,19 +61,19 @@ new Promise((resolve, reject) => {
 new Promise(function (resolve, reject) {
   // try...catch
   setTimeout(() => {
-    throw new Error("Whoops!");
-  }, 1000);
-}).catch(alert);
-// .catch() 不会捕获错误，因为try catch 只捕获同步错误，这里的错误不是在 executor 运行时产生的，而是在稍后生成的
+    throw new Error('Whoops!')
+  }, 1000)
+}).catch(alert)
+// .catch() 不会捕获错误，因为 try catch 只捕获同步错误，这里的错误不是在 executor 运行时产生的，而是在稍后生成的
 ```
 
 ```js
 new Promise(function (resolve, reject) {
   setTimeout(() => {
-    reject(new Error("Whoops!"));
-  }, 1000);
-}).catch(alert);
-// 会alert错误
+    reject(new Error('Whoops!'))
+  }, 1000)
+}).catch(alert)
+// 会 alert 错误
 ```
 
 ## finally
@@ -85,10 +84,10 @@ new Promise(function (resolve, reject) {
 
 ```js
 new Promise((resolve, reject) => {
-  setTimeout(() => resolve("value"), 2000);
+  setTimeout(() => resolve('value'), 2000)
 })
-  .finally(() => alert("Promise ready")) // 先触发
-  .then(result => alert(result)); // <-- .then 显示 "value"
+  .finally(() => alert('Promise ready')) // 先触发
+  .then((result) => alert(result)) // <-- .then 显示 "value"
 ```
 
 - **`finally` 处理程序也不应该返回任何内容，如果返回了，返回的值会默认被忽略。除非该程序抛出 `error`，此时这个 `error` 会被转到下一个处理程序。**
