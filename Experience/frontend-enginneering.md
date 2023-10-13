@@ -2,14 +2,99 @@
 
 前端代码规范主要使用
 
-1. `prettier` - 代码格式化工具
-2. `eslint` - 检查并修复 js 的工具
-3. `commitlint` - [Link](https://commitlint.js.org/#/guides-local-setup)
-4. `commitizen` - commit message
-5. `husky` - 提供所有的 Git hooks
-6. `lint-staged` - 将所有的 staged 中的文件执行 linter，避免出现代码 💩
+1. `git` - 版本管理工具
+2. `commitlint` - 项目 commit message 校验工具
+3. `husky` - 提供所有的 Git hooks
+4. `commitizen` - commit message 提交工具
+5. `prettier` - 代码格式化工具
+6. `eslint` - 检查并修复 js 的工具
+7. `lint-staged` - 将所有的 staged 中的文件执行 linter，避免出现代码 💩
 
-## prettier
+## Git
+
+vue 项目模板创建后，可以进行 git 进行版本控制
+
+```shell
+git init
+```
+
+可通过 [Link](https://github.com/github/gitignore) 添加 `.gitignore` 模板
+
+## Commitlint
+
+- [参考](https://commitlint.js.org/#/guides-local-setup)
+
+```shell
+npm install --save-dev @commitlint/{cli,config-conventional}
+
+echo "module.exports = { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+```
+
+> 此时，还无法生效，需要安装 Husky，在 git hooks - `commit-msg` 的时候进行校验
+
+## Husky
+
+- [Husky](https://typicode.github.io/husky/getting-started.html#install)
+
+```shell
+# install
+npm install husky --save-dev
+# enabled
+npx husky install
+# auto enabled after install
+npm pkg set scripts.prepare="husky install"
+```
+
+### Create a hook
+
+```shell
+npx husky add .husky/pre-commit "npx lint-staged" # 在 pre-commit 的时候进行 lint-staged
+
+npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"' # 在 commit message 进行 commitlint 检查🧐
+```
+
+> 前期可以跳过第一个 `lint-staged` 钩子，先创建 `commit-msg` 钩子。注意，敲代码 👨🏻‍💻 的时候不要把上面的注释敲上去了。
+
+现在 `git commit -m 'x'` 时，如果 commit msg 不符合规范就会被阻止提交。
+
+## Commitizen
+
+使用 `commitizen` 来帮助我们生成规范的 commit message。
+
+安装方式：
+
+```shell
+npm i -g commitizen
+```
+
+使用方式：
+
+```shell
+git cz
+```
+
+⚠️ 如果 `git cz` 和输入 `git commit` 一样的话, 我们应该在我们的项目中运行下面的代码。👨‍💻
+
+```shell
+commitizen init cz-conventional-changelog --save-dev --save-exact
+```
+
+### works global
+
+but this method only works a project. if we want works global, wo can do that as follow.
+
+```shell
+npm install -g commitizen
+npm install -g cz-conventional-changelog
+
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
+```
+
+> Reference: [🔗](https://github.com/commitizen/cz-cli)
+
+## Prettier
+
+`prettier` 常见配置
 
 ```cjs
 // .prettierrc.cjs
@@ -61,7 +146,7 @@ module.exports = {
 }
 ```
 
-## eslint
+## Eslint
 
 ```cjs
 // .eslint.cjs
@@ -106,59 +191,6 @@ module.exports = {
 }
 ```
 
-## commitizen
-
-use `commitizen` for format our commit message.
-
-```shell
-npm i -g commitizen
-```
-
-use it
-
-```shell
-git cz
-```
-
-⚠️ if `git cz` work as `git commit`, we should run below👇🏻 code in my project.👨‍💻
-
-```shell
-commitizen init cz-conventional-changelog --save-dev --save-exact
-```
-
-### works global
-
-but this method only works a project. if we want works global, wo can do that as follow.
-
-```shell
-npm install -g commitizen
-npm install -g cz-conventional-changelog
-
-echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
-```
-
-> Reference: [🔗](https://github.com/commitizen/cz-cli)
-
-## Husky
-
-[Install Husky](https://typicode.github.io/husky/getting-started.html#install)
-
-### Create a hook
-
-```shell
-npx husky add .husky/pre-commit "npx lint-staged" # 在 pre-commit 的时候进行 lint-staged
-
-npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"' # 在 commit message 进行 commitlint 检查🧐
-```
-
-### Automatically Git hooks enabled
-
-automatically have Git hooks enabled after install, edit package.json
-
-```shell
-npm pkg set scripts.prepare="husky install"
-```
-
 ## Lint-Staged
 
 ### Install
@@ -168,6 +200,8 @@ npm install --save-dev lint-staged
 ```
 
 ### Configure Lint-Staged
+
+- reference: [Configure Lint-Staged](https://github.com/okonet/lint-staged#configuration)
 
 ```js
 // lint-staged.config.js
@@ -180,4 +214,4 @@ module.exports = {
 }
 ```
 
-> reference: [Configure Lint-Staged](https://github.com/okonet/lint-staged#configuration)
+> 注意：不要忘记添加上面的 `pre-commit` hook
