@@ -215,3 +215,5 @@ module.exports = {
 ```
 
 > 注意：不要忘记添加上面的 `pre-commit` hook
+
+这样，一个项目的初步搭建就完成了。👏🏻
